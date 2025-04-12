@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ML-Based Query Optimizer</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<h1>ML-Based Query Optimizer</h1>
+<div id="model-loading" class="model-loading">
+    <h3>Loading ML Models...</h3>
+    <p>This may take a moment on first use as models are downloaded.</p>
+    <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <p id="loading-status">Initializing...</p>
+</div>
+
+<div id="fallback-notice" class="fallback-notice">
+    Note: Using fallback non-ML mode because one or more models failed to load.
+</div>
+
+<div id="main-container" class="container" style="display: none;">
+    <div>
+        <label for="query-input"><strong>Enter your query:</strong></label>
+        <textarea id="query-input" placeholder="Type a question here..."></textarea>
+    </div>
+
+    <button id="optimize-button">Optimize Query</button>
+
+    <div id="status-message" class="status-message">Ready</div>
+
+    <div id="result-container" class="result" style="display: none;">
+        <h3>Results:</h3>
+        <div><strong>Original:</strong> <span id="original-query"></span></div>
+        <div><strong>Optimized:</strong> <span id="optimized-query"></span></div>
+
+        <div class="stats">
+            <div><strong>Original tokens:</strong> <span id="original-tokens"></span></div>
+            <div><strong>Optimized tokens:</strong> <span id="optimized-tokens"></span></div>
+            <div><strong>Reduction:</strong> <span id="token-reduction"></span></div>
+        </div>
+
+        <div class="model-info" id="model-info">
+            <strong>ML Models Used:</strong>
+            <div id="models-list"></div>
+        </div>
+    </div>
+
+    <div class="examples">
+        <h3>Try these examples:</h3>
+        <div id="example-buttons"></div>
+    </div>
+</div>
+<!--Explicitly Loading Required Scripts -->
+<!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.2.0"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.13.4/dist/transformers.min.js"></script>-->
+<!--Loading in js code -->
+<script src="tf.min.js"></script>
+<script src="transformers.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
